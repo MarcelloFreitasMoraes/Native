@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { View, Text, TextInput, Button } from "react-native";
-import { NavigationContainer, RouteProp } from "@react-navigation/native";
-import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
+import { Text, Button } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import * as S from "./styles";
+import Logo from "../../global/assets/logo.png";
+import theme from "../../styles/theme";
 
 type RootStackParamList = {
   Home: undefined;
@@ -21,7 +23,7 @@ export default function LoginScreen({ navigation }: Props) {
 
   const handleLogin = useCallback(async () => {
     try {
-      const result = await new Promise((resolve, reject) => {
+      await new Promise((resolve, reject) => {
         setTimeout(() => {
           if (email === "teste@teste.com" && password === "12345") {
             resolve({ success: true });
@@ -30,11 +32,9 @@ export default function LoginScreen({ navigation }: Props) {
           }
         }, 1000);
       });
-
-      // Login bem-sucedido, navegue para a tela "Home"
+  
       navigation.navigate("Home");
     } catch (error) {
-      // Exibir mensagem de erro
       if (typeof error === "string") {
         setError(error);
       } else {
@@ -42,16 +42,20 @@ export default function LoginScreen({ navigation }: Props) {
       }
     }
   }, [email, password, navigation]);
-
+  
   return (
-    <View>
+    <S.ComeBack>
+      <S.LogoContent>
+      <S.Logo source={Logo} />
+      </S.LogoContent>
       <Text style={{ color: 'red' }}>Login</Text>
-      <TextInput
+      <S.InputComponent
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
         value={email}
+        placeholderTextColor={theme.colors.textOne}
       />
-      <TextInput
+      <S.InputComponent
         placeholder="Password"
         onChangeText={(text) => setPassword(text)}
         value={password}
@@ -59,6 +63,6 @@ export default function LoginScreen({ navigation }: Props) {
       />
       <Button title="Login" onPress={handleLogin} />
       {error ? <Text style={{ color: "red" }}>{error}</Text> : null}
-    </View>
+    </S.ComeBack>
   );
 }

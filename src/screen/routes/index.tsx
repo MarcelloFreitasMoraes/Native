@@ -15,9 +15,9 @@ export const Routes = () => {
 
   return (
     <NavigationContainer>
-      {user ? <AppRoutes /> : <AuthRouter />}
+      {/* {user ? <AppRoutes /> : <AuthRouter />} */}
       {/* <Home />  */}
-      {/* <LoginScreen navigation={undefined}/> */}
+      <LoginScreen navigation={undefined} />
       {/* <AppRoutes/> */}
     </NavigationContainer>
   );
