@@ -3,8 +3,10 @@ import { Image, TextInput } from "react-native";
 import theme from "../../styles/theme";
 
 export const ComeBack = styled.View`
-  padding: 0 50px;
-  gap: 10px;
+  width: 90%;
+  padding: 0 20px;
+  gap: 10px; 
+   align-items: center;
 `;
 
 export const LogoContent = styled.View`
@@ -12,9 +14,10 @@ export const LogoContent = styled.View`
   height: 215px;
   margin-bottom: 20px;
 `;
+
 export const Logo = styled(Image)`
   width: 100%;
-  height: 100%;
+  height: 100%; 
 `;
 
 export const InputComponent = styled(TextInput)`
