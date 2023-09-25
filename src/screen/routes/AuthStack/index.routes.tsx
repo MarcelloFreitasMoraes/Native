@@ -11,7 +11,7 @@ export function AuthRouter() {
 
   return (
     <Navigator
-    //   initialRouteName="Preload"
+     initialRouteName="LoginScreen"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="LoginScreen" component={LoginScreen} />
