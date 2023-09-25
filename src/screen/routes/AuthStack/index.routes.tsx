@@ -4,6 +4,7 @@ import  LoginScreen  from "../../Login";
 // import { PreloadScreen } from "../../screens/PreLoad";
 
 import { INavigationAuthStackProps } from "./types";
+import { Home } from "../../Home";
 
 export function AuthRouter() {
   const { Navigator, Screen } =
@@ -11,11 +12,11 @@ export function AuthRouter() {
 
   return (
     <Navigator
-    //   initialRouteName="Preload"
+     initialRouteName="LoginScreen"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="LoginScreen" component={LoginScreen} />
-      {/* <Screen name="Preload" component={PreloadScreen} /> */}
+       <Screen name="Home" component={Home} /> 
     </Navigator>
   );
 }

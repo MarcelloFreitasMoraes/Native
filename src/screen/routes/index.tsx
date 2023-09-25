@@ -11,13 +11,15 @@ import LoginScreen from "../Login";
 
 export const Routes = () => {
   const authContext = useAuth();
+  console.log(authContext,'authContext');
+  
   const user = authContext?.user;
 
   return (
     <NavigationContainer>
-      {user ? <AppRoutes /> : <AuthRouter />}
+      {/* {user ? <AppRoutes /> : <AuthRouter />} */}
       {/* <Home />  */}
-      {/* <LoginScreen navigation={undefined}/> */}
+      <LoginScreen navigation={undefined} />
       {/* <AppRoutes/> */}
     </NavigationContainer>
   );
